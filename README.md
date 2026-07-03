@@ -97,15 +97,15 @@ d) Reach–Precision Balance
 
 <img width="575" height="340" alt="Screenshot 2026-07-01 at 3 02 59 PM" src="https://github.com/user-attachments/assets/f5d7457e-8919-45b4-ba43-3d479d1a7325" />
 
-*Class Imbalance Summary: 9.8% positive class - training data, 14.67% - test data)*
+*Class Imbalance Summary: 9.8% positive class - training data, 14.67% - test data*
 
 </div>
 
 ### Sampling Strategy
 | Type | Description|
 | ------------- | ------------- |
-| Imbalanced (Original) | Improve detection of minority   |
-| Balanced (Unsampled |  |
+| Imbalanced (Original) | Used during testing -> helps reflect real-world customer distribution.   |
+| Balanced (Unsampled | Used during model training to help the algorithm learn both classes fairly and improve its ability to identify subscribers.|
 
 ## 🔍 Machine learning models:
 Models developed
@@ -113,17 +113,16 @@ Models developed
 - Random Forest
 - Support Vector Machine (SVM)
 - k-Nearest Neighbours (kNN)
-- Artificial Neural Network (ANN)
 
 ## 📈 Models Evaluation Summary
-### Model Performance Comparison
+### Model Comparison
 
 | Model | Accuracy | Precision | Recall | F1 Score | AUC-ROC | Strength |
 |:------|---------:|----------:|-------:|---------:|--------:|:---------|
-| 🌳 Decision Tree | 76.56% | 38.14% | **96.14%** | 54.62% | 87.06% | Highest recall, highly interpretable |
-| 🌲 Random Forest | 80.78% | 42.50% | 88.02% | 57.33% | **89.80%** | Best ranking performance (AUC) |
-| ⚡ SVM | **83.20%** | **46.50%** | 82.60% | **59.50%** | 86.30% | Best overall balance (highest Accuracy & F1) |
-| 👥 kNN | 81.00% | 41.52% | 71.63% | 52.57% | 85.10% | Simple baseline with competitive performance |
+| Decision Tree | 76.56% | 38.14% | **96.14%** | 54.62% | 87.06% | Highest recall, highly interpretable |
+| Random Forest | 80.78% | 42.50% | 88.02% | 57.33% | **89.80%** | Best ranking performance (AUC) |
+| SVM | **83.20%** | **46.50%** | 82.60% | **59.50%** | 86.30% | Best overall balance (highest Accuracy & F1) |
+| kNN | 81.00% | 41.52% | 71.63% | 52.57% | 85.10% | Simple baseline with competitive performance |
 
 ### 🏆 Best Performing Models
 
@@ -135,3 +134,24 @@ Models developed
 | Highest F1 Score | 🥇 Support Vector Machine (59.50%) |
 | Highest ROC-AUC | 🥇 Random Forest (89.80%) |
 
+### Model benefits to the Portuguese Banks & Business Insights:
+**Support Vector Machine (SVM)**
+- **Organizational Benefits**: SVM acts as the premier model for high-precision targeting. For a Portuguese bank, deploying this model maximizes term deposit acquisitions while minimizing unnecessary outreach costs and avoiding contact fatigue.
+- **Business Insights**: The large-margin classification principle of the RBF (Radial Basis Function) kernel handles non-linear customer behaviors effectively, proving highly successful at mapping complex demographic-economic interactions. This ensures steady, reliable performance across complex customer segments.
+
+**Random Forest (RF)**
+- **Organizational Benefits**: Random Forest delivers the highest AUC and recall. Its structural advantage lies in its stability, and native feature importance metrics, making it significantly easier to operationalize, govern, and explain to non-technical stakeholders compared to margin-based black boxes.
+- **Business Insights**: Because it achieves the highest AUC, the RF model is the most powerful tool for ranking customers. If a bank has a constrained marketing budget or a fixed number of available telemarketing hours, it can use the model to rank leads from highest to lowest probability and strictly contact the top- $N$ candidates to maximize conversion ROI.
+
+**Decision Tree**
+- **Organizational Benefits**: While it underperforms on precision, the Decision Tree achieves the absolute highest recall. Its primary value to an organization is its absolute rule-based transparency. It serves as an excellent low-cost triage pass to coarsely segment a large customer database before handing leads off to more complex models.
+- **Business Insights**: The tree reveals call duration as the single most critical behavioral indicator of intent, making its first statistical split at 364 seconds. It uncovers that calls lasting over 553 seconds result in an 88% success rate, whereas short calls yield a mere 2% subscription rate.
+
+**k-Nearest Neighbors (kNN)**
+- **Organizational Benefits**: kNN provides a simpler, proximity-based framework for identifying potential subscribers based on customer similarity.
+- **Business Insights**: While it underperformed relative to the ensemble and margin-based models due to its sensitivity to mixed data types and data imbalance, its precision-recall curve proved that it still retrieves subscribers at a rate substantially better.
+
+### Macro-Economic & Strategic Insights for the Organization
+- **Counter-Cyclical Saving Behaviors**: The report highlights a crucial historical window (2008–2010) marked by the global financial crisis and the Eurozone sovereign-debt crisis. During this highly volatile period, tighter lending conditions heavily constricted job growth, resulting in strong positive correlations between employment levels (nr.employed), employment variation rates (emp.var.rate), and interest rates (euribor3m).  
+- **Leveraging Consumer Risk-Aversion**: While overall consumer confidence was weak, Portuguese banks were under intense regulatory pressure to capture stable, long-term funding to meet higher capital requirements. The models successfully exploit the business reality that during economic instability, specific low-risk demographics (such as retirees, who achieved a 25.23% conversion rate, and customers aged 65+, who achieved a 47.21% conversion rate) heavily seek safe, government-insured options like term deposits.
+- **Optimal Communication Channels**: The report identifies a stark contrast between outreach mechanisms, showing that cellular communication yielded a vastly higher success rate (14.74%) compared to traditional telephone lines (5.23%). This insight allows the organization to shift its communication infrastructure directly toward mobile-first strategies to maximize conversion per contact dollar.
