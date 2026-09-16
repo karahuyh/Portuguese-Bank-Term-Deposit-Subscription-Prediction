@@ -1,6 +1,6 @@
 <div align="center">
 
-# Bank Term Deposit Subscription Prediction
+# Portuguese Bank Term Deposit Subscription Prediction
 ### Predicting customer subscription likelihood using machine learning and cost-sensitive classification
 
 ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
